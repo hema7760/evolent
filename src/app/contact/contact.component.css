@@ -1,0 +1,15 @@
+.example-form{
+    align-items: center;
+}
+mat-form-field{
+    height: auto;
+    margin-top: 15px;
+    border:0;
+}
+.submitButton{
+    justify-content: center;
+    display: flex;
+}
+button{
+    width:30%;
+}

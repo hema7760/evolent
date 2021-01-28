@@ -1,0 +1,54 @@
+<h3 class="card-header text-center font-weight-bold text-uppercase py-4 bg-info">{{action}} Contact</h3>
+<div class="container">
+
+    <form class="example-form" [formGroup]="profileForm">
+        <!-- name -->
+        <mat-form-field class="example-full-width" class="form-control">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="fname" placeholder="First Name">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" class="form-control">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="lname">
+        </mat-form-field><br>
+
+        <!-- email -->
+        <mat-form-field class="example-full-width" class="form-control">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="pat@example.com" formControlName="email">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field><br>
+
+        <!--Mobile number-->
+        <mat-form-field class="example-full-width" class="form-control">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" placeholder="phone number" formControlName="phone" pattern="[1-9]{1}[0-9]{9}">
+        </mat-form-field><br>
+
+        <!--status update-->
+        <mat-form-field class="form-control">
+            <mat-label>Status</mat-label>
+            <mat-select class="form-control" formControlName="status">
+                <mat-option value="Active">
+                    Active
+                </mat-option>
+                <mat-option value="Inactive">
+                    Inactive
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field><br>
+        <div class="submitButton">
+
+            <button type="submit" [disabled]="!profileForm.valid" mat-raised-button color="primary"
+                (click)="submitChanges(profileForm.value)">Submit</button>
+        </div>
+    </form>
+</div>

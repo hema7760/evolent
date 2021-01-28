@@ -1,0 +1,52 @@
+<h3 class="card-header text-center font-weight-bold text-uppercase py-4 bg-info">Contact List</h3>
+<div class="container">
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2">
+                <a class="text-success" [routerLink]="['/contact']">
+                    <button mat-raised-button color="primary">Add Contact</button>
+                </a>
+            </span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <tr>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Phone Number</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Edit</th>
+                    <th class="text-center">Remove</th>
+                </tr>
+                <tr *ngFor="let person of personList; let id = index">
+                    <td>
+                        <span>{{person.fname}}</span>
+                    </td>
+                    <td>
+                        <span>{{person.lname}}</span>
+                    </td>
+                    <td>
+                        <span>{{person.email}}</span>
+                    </td>
+                    <td>
+                        <span>{{person.phone}}</span>
+                    </td>
+                    <td>
+                        <span>{{person.status}}</span>
+                    </td>
+                    <td>
+                        <span class="table-remove">
+                            <button type="button" mat-raised-button color="primary" rounded="true" size="sm"
+                                class="my-0" (click)="edit(id)">Edit</button>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="table-remove">
+                            <button type="button" mat-raised-button color="primary" rounded="true" size="sm"
+                                class="my-0" (click)="remove(id)">Remove</button>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
